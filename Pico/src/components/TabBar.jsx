@@ -4,7 +4,7 @@ const TabBar = () => {
     <div className=" w-full px-1">
       <div role="tablist" className="tabs  tabs-bordered">
         <a role="tab" className="tab" href="/">
-          Fyp
+          for you
         </a>
         <a role="tab" className="tab tab-active" href="/myalbums">
           Tab 2
