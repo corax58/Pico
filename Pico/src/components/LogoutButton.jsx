@@ -12,8 +12,7 @@ const LogoutButton = () => {
       }
     >
       <LogOut />
-
-      <p className=" font-bold">Log Out</p>
+      <p className=" font-bold">LogOut</p>
     </button>
   );
 };
