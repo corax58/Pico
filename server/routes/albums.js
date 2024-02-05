@@ -9,8 +9,6 @@ const {
 
 const router = express.Router();
 
-//routes
-
 router.get("/", getAllAlbums);
 
 router.get("/search", searchAlbums);
