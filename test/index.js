@@ -1,6 +1,21 @@
 import simpleGit from "simple-git";
 
 const git = simpleGit();
-const date = "2024-01-04 14:30:00 +0300";
+const date = "2024-02-05T14:30:00+03:00"; // Use ISO format
 
-git.add("../").commit("Updated more files", { "--date": date }).push(); // Corrected commit message
+(async () => {
+  try {
+    await git.add(".");
+
+    // Set commit date using environment variables
+    await git.env({
+      GIT_AUTHOR_DATE: date,
+      GIT_COMMITTER_DATE: date,
+    });
+
+    await git.commit("Updated files");
+    console.log("Committed with a custom date!");
+  } catch (err) {
+    console.error("Error:", err);
+  }
+})();
