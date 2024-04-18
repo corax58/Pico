@@ -20,7 +20,7 @@ app.use(express.json());
   
 
 //routes
-app.use('/albums/', albums);
+app.use('/api/albums/', albums);
 
 
 //connect to the database

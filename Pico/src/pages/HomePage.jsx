@@ -1,11 +1,13 @@
+import PostCard from "@/components/PostCard"
 
 
 const HomePage = () => { 
 
 
-
   return (
-    <div >
+    <div className=" ">
+ <PostCard/>
+
     </div>
   )
 }

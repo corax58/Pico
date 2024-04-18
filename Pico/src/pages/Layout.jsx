@@ -3,9 +3,8 @@ import NavBar from "../components/NavBar"
 
 const Layout = () => {
   return (
-    <div>
-        <NavBar/>
-     
+    <div className="h-screen w-screen  bg-slate-100">
+      <NavBar/>
       <Outlet/>
     </div>
   )

@@ -33,7 +33,7 @@ const createAlbum = async (req, res) => {
 
     const album = req.body;
 
-    console.log(req)
+    console.log(album)
 
     try{
         const newAlbum = await Album.create(album);

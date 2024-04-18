@@ -3,25 +3,14 @@ import { MdDelete } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { useMutation,useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import useCreatePostHook from "@/hooks/useCreatePostHook";
 
 
 const PostModal = ({imageUrls, removeImages}) => {
     const {register, handleSubmit, formState: {errors}} = useForm()
-    const queryClient = useQueryClient()
     const [tags, setTags] = useState([])
     const  tagRef = useRef(null)
-
-    const createPost = useMutation({
-    mutationFn: (postData) => axios.post('', postData).then(res=>res.data),
-    onSuccess:(sentPostData,returnedPostData )=>{
-    // queryClient.invalidateQueries({queryKey:['posts']})
-    }
-    })
-
-
-
-
-
+    const {mutate} = useCreatePostHook();
 
   //Function for adding tags
   const addTags = (tag) => {
@@ -57,15 +46,13 @@ const onSubmit = (data) => {
     }
   }
   console.log(postData)
-
-  createPost.mutate(postData)
+  mutate(postData)
 }
 
   return (
     <div> <dialog id="my_modal_3" className="modal">
     <div className="modal-box w-max">
       <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
       </form>
       <div>

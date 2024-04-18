@@ -7,7 +7,6 @@ const NavBar = () => {
     <div className="h-16 w-full flex pt-2 p-5 shadow-sm">
 <div>
     <img className="   h-max  w-32" src={logo}/>
-
 </div>
 <form className='w-full  flex justify-center'>
 <input type="text" className=' h-10 w-96 rounded-full pl-3 mr-1 bg-slate-200' placeholder='Search'/>  

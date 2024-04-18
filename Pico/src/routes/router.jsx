@@ -3,6 +3,7 @@ import HomePage from '../pages/HomePage'
 import Layout from '../pages/Layout'
 import NavigationLayout from '../pages/NavigationLayout'
 import ErrorPage from '../pages/ErrorPage'
+import PostPage from '@/pages/PostPage'
 
 const router = createBrowserRouter([
 
@@ -20,6 +21,9 @@ const router = createBrowserRouter([
                     element:<HomePage/>
                 }
             ]
+        },{
+            path:'/post/:postId',
+            element:<PostPage/>
         }
     ]
     }

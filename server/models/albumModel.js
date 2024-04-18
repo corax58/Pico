@@ -8,12 +8,17 @@ const albumSchema = new Schema({
         required: true
     },
     postedBy:{
-        _id:String,
-        username:String,
+        userName:String,
         profilePic:String,
     },
-    imagesUrl: [String],
-   desctiption: String
+    imageUrls: [{ 
+        imageUrl: String,
+        imagePublicId: String,
+       
+        imageThumbnailUrl: String
+    }],
+   desctiption: String,
+   tags: [String],
     
 }, {
     timestamps: true
