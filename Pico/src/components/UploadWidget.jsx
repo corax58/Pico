@@ -35,7 +35,6 @@ const UploadWidget = ({addImages}) => {
                     sourceBg: "#FFF6F6"
                 }},
         }, function(error, result) {
-            console.log(result)
             if(result.event ==='close'){
                 document.getElementById('my_modal_3').showModal()
             }
@@ -52,11 +51,10 @@ const UploadWidget = ({addImages}) => {
             }
         })
     },[])
-console.log(cloudinaryRef.current)
   return (
-    <div className='absolute  bottom-0 items-center right-1/2 group'>
-        <button onClick={() => widgetRef.current.open()} className='btn absolute  bottom-0 items-center right-1/2 mb-5 text-white bg-red-500 hover:bg-red-600'>
-            <span className='absolute  bg-red-400 w-max p-3 rounded-xl bottom-16 scale-0 group-hover:scale-100 transition-all duration-100 origin-bottom font-medium'>Upload new album</span>
+    <div className=' w-max fixed bottom-0 items-center  group left-1/2 -ml-6'>
+        <button onClick={() => widgetRef.current.open()} className='btn       items-center right-1/2 mb-5 text-white bg-red-500 hover:bg-red-600'>
+            <span className='absolute  bg-red-400 w-max p-3 rounded-xl bottom-20  scale-0 group-hover:scale-100 transition-all duration-100 origin-bottom font-medium'>Upload new album</span>
             <FaPlus/>
             </button>
         

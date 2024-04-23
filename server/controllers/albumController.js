@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const getAllAlbums = async (req, res) => {
 
     try {
-        const albums = await Album.find();
+        const albums = await Album.find().sort({createdAt: -1});
         res.status(200).json(albums)
     } catch (error) {
         res.status(404).json({ message: error.message })

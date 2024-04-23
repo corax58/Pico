@@ -4,6 +4,8 @@ import Layout from '../pages/Layout'
 import NavigationLayout from '../pages/NavigationLayout'
 import ErrorPage from '../pages/ErrorPage'
 import PostPage from '@/pages/PostPage'
+import MyAlbumsPage from '@/pages/MyAlbumsPage'
+import TestPage from '@/pages/TestPage'
 
 const router = createBrowserRouter([
 
@@ -19,6 +21,9 @@ const router = createBrowserRouter([
                 {
                     index:true,
                     element:<HomePage/>
+                },{
+                    path:'/myalbums',
+                    element:<MyAlbumsPage/>
                 }
             ]
         },{
@@ -26,6 +31,9 @@ const router = createBrowserRouter([
             element:<PostPage/>
         }
     ]
+    },{
+        path:'/test',
+        element:<TestPage/>
     }
 ]
    

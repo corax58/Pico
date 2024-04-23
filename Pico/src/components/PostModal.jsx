@@ -21,7 +21,6 @@ const PostModal = ({imageUrls, removeImages}) => {
     if(tags.includes(processedTag) || tags.length >= 5) {
       return
     }
-    console.log(processedTag)
     setTags([...tags, processedTag])
     tagRef.current.value = ''
   }
@@ -47,6 +46,8 @@ const onSubmit = (data) => {
   }
   console.log(postData)
   mutate(postData)
+
+
 }
 
   return (

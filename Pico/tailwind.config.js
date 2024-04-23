@@ -6,6 +6,9 @@ export default {
     extend: {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
+      },
+      spacing: {
+       '100': '28rem',
       }
     },
   },

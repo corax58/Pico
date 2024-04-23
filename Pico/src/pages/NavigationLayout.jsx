@@ -23,7 +23,7 @@ const [imageUrls,dispatch] = useReducer(imageUrlsReducer,[]);
 
 
   return (
-    <div className="">
+    <div className=" ">
          <TabBar/>
       <Outlet/>
       <UploadWidget addImages={addImages} />
