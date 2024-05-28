@@ -4,8 +4,6 @@ import useFetchAllPosts from "@/hooks/useFetchAllPosts";
 const HomePage = () => {
   const { data, isLoading, error } = useFetchAllPosts();
 
-  console.log(data);
-
   if (isLoading)
     return (
       <div className="w-full justify-center flex mt-32">
