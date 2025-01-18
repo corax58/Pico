@@ -30,9 +30,11 @@ const HomePage = () => {
       </div>
     );
   return (
-    <div className=" w-full space-y-5  justify-center items-center  md:justify-evenly   md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6  columns-1 p-5 ">
+    <div className=" w-full space-y-5    md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6  columns-1 px-5 pt-20 ">
       {data.map((post) => (
-        <PostCard key={post._id} post={post} />
+        <div className="flex w-full justify-center items-center  ">
+          <PostCard key={post._id} post={post} />
+        </div>
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const PostCard = ({ post }) => {
   return (
     <Link to={`/post/${post._id}`} className="  break-inside-avoid ">
-      <div className=" shadow-lg bg-slate-50 mb-5  w-60 h-max  hover:shadow-2xl rounded-3xl overflow-hidden   hover:scale-y-[1.02] hover:scale-x-[1.02] transition-all duration-200 ">
+      <div className=" shadow-lg bg-slate-50   w-full h-max  hover:shadow-2xl rounded-3xl overflow-hidden   hover:scale-y-[1.02] hover:scale-x-[1.02] transition-all duration-200 ">
         <div className=" h-max w-full bg-white  p-2">
           {post.imageUrls.length < 2 ? (
             <div className="h-full w-full rounded-2xl overflow-hidden  flex justify-center">
