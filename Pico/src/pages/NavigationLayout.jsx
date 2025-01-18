@@ -20,7 +20,6 @@ const NavigationLayout = () => {
       <TabBar />
       <Outlet />
       <UploadWidget addImages={addImages} />
-      {/* <button className="btn absolute  bottom-0 items-center right-1/2 mb-5 text-white bg-red-500 hover:bg-red-600" onClick={()=>{}}><FaPlus/></button> */}
       <PostModal imageUrls={imageUrls} removeImages={removeImages} />
     </div>
   );

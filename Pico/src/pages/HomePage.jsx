@@ -30,7 +30,7 @@ const HomePage = () => {
       </div>
     );
   return (
-    <div className="   space-y-5  justify-center items-center  md:justify-evenly   md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6  columns-1 p-5 ">
+    <div className=" w-full space-y-5  justify-center items-center  md:justify-evenly   md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6  columns-1 p-5 ">
       {data.map((post) => (
         <PostCard key={post._id} post={post} />
       ))}
