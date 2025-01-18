@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 const TabBar = () => {
   return (
-    <div className='flex shadow-sm text-xl h-10 '>
-      <Link to={"/"} className="flex w-full justify-center hover:bg-slate-200 transition-all hover:scale-105 hover:shadow-lg">
-FYP
-      </Link>
-      <Link to={"/myalbums"} className="flex w-full justify-center hover:bg-slate-200 transition-all hover:scale-105 hover:shadow-lg">
-My Albums
-      </Link>
-      
+    <div className=" w-full px-1">
+      <div role="tablist" className="tabs  tabs-bordered">
+        <a role="tab" className="tab" href="/">
+          Fyp
+        </a>
+        <a role="tab" className="tab tab-active" href="/myalbums">
+          Tab 2
+        </a>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default TabBar
+export default TabBar;

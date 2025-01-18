@@ -17,7 +17,6 @@ const NavigationLayout = () => {
 
   return (
     <div className=" ">
-      <TabBar />
       <Outlet />
       <UploadWidget addImages={addImages} />
       <PostModal imageUrls={imageUrls} removeImages={removeImages} />
