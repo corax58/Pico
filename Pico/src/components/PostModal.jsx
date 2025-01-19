@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import useCreatePostHook from "@/hooks/useCreatePostHook";
+import { Trash2, X } from "lucide-react";
 
 const PostModal = ({ imageUrls, removeImages }) => {
   const {
@@ -85,7 +86,7 @@ const PostModal = ({ imageUrls, removeImages }) => {
                 id=""
                 cols="10"
                 rows="10"
-                className="h-24 w-96 rounded-xl pl-3 mr-1 bg-slate-200"
+                className="h-24 w-96 rounded-xl p-3 pt-2 mr-1 bg-slate-200"
               ></textarea>
               <label htmlFor="tags">Tags</label>
               <div className=" flex">
@@ -110,18 +111,16 @@ const PostModal = ({ imageUrls, removeImages }) => {
               {tags.length === 5 && (
                 <p className="text-red-500">Max number of tags reached.</p>
               )}
-              <div className="flex  flex-wrap space-x-1 space-y-1">
+              <div className="flex  flex-wrap gap-1">
                 {tags.map((tag) => (
-                  <div className="relative group ">
+                  <div className="relative group  cursor-pointer ">
                     <div
                       onClick={() => removeTag(tag)}
-                      className=" absolute right-0 left-auto group-hover:scale-100 scale-0 cursor-pointer hover:bg-slate-200 w-5 h-5 bg-slate-200 rounded-full flex justify-center items-center -mt-2  -mr-2"
+                      className=" absolute right-0 left-auto scale-0 group-hover:scale-100 hover:bg-red-500 bg-red-300 transition-all  cursor-pointer w-5 h-5  rounded-full flex justify-center items-center -mt-2  -mr-2"
                     >
-                      x
+                      <X strokeWidth={3} size={14} />
                     </div>
-                    <p className="text-blue-500 bg-blue-300 rounded-full p-1 pt-0 underline w-max">
-                      {tag}
-                    </p>
+                    <p className="text-blue-500  underline w-max">{tag}</p>
                   </div>
                 ))}
               </div>
@@ -136,10 +135,10 @@ const PostModal = ({ imageUrls, removeImages }) => {
                     className="w-32 h-32 relative group"
                   >
                     <div
-                      className="absolute rounded-full  bg-red-800 right-0 left-auto text-white font-medium  p-1 hover:bg-red-600 cursor-pointer  scale-0 group-hover:scale-100"
+                      className="absolute rounded-full  bg-red-800 right-0 left-auto text-white font-medium  p-[6px] -mt-2 -mr-2 hover:bg-red-600 cursor-pointer  scale-0 group-hover:scale-100 transition-all "
                       onClick={() => removeImages(imageUrl)}
                     >
-                      <MdDelete />
+                      <Trash2 size={16} strokeWidth={3} />
                     </div>
                     <img
                       src={imageUrl.imageThumbnailUrl}
@@ -150,7 +149,7 @@ const PostModal = ({ imageUrls, removeImages }) => {
                 ))}
               </div>
               <button
-                className="btn btn-primary w-max"
+                className="btn btn-primary w-full"
                 disabled={imageUrls.length === 0}
                 type="submit"
               >

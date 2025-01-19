@@ -6,7 +6,7 @@ const HomePage = () => {
 
   if (isLoading)
     return (
-      <div className="w-full justify-center flex mt-32">
+      <div className="w-full justify-center flex pt-32">
         <span className="loading loading-bars loading-lg"></span>
       </div>
     );
@@ -32,8 +32,11 @@ const HomePage = () => {
   return (
     <div className=" w-full space-y-5    md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6  columns-1 px-5 pt-20 ">
       {data.map((post) => (
-        <div className="flex w-full justify-center items-center  ">
-          <PostCard key={post._id} post={post} />
+        <div
+          key={post._id}
+          className="flex w-full justify-center items-center "
+        >
+          <PostCard post={post} />
         </div>
       ))}
     </div>

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { light } from "@cloudinary/url-gen/qualifiers/fontWeight";
 import daisyui from "daisyui";
 
 export default {
@@ -15,6 +16,16 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          primary: "#ff6c6c",
+          secondary: "#f44336",
+        },
+      },
+      "dark",
+      "corporate",
+    ],
   },
 };

@@ -61,16 +61,27 @@ const PostCard = ({ post }) => {
               ))}
             </div>
           </div>
-          <div className="flex space-x-2">
-            <img
-              src={
-                "https://wallpapers.com/images/hd/random-pfp-with-sunglasses-and-hearts-9cjm5zicnjcogsa2.jpg"
-              }
-              alt=""
-              className="h-8 w-8 rounded-full"
-            />
-            <p className="mt-1 text-xs">{post.postedBy.userName}</p>
-          </div>
+          {post.author ? (
+            <div className="flex space-x-2">
+              <img
+                src={post.author.profilePicture}
+                alt=""
+                className="h-8 w-8 rounded-full"
+              />
+              <p className="mt-1 text-xs">{post.author.name}</p>
+            </div>
+          ) : (
+            <div className="flex space-x-2">
+              <img
+                src={
+                  "https://wallpapers.com/images/hd/random-pfp-with-sunglasses-and-hearts-9cjm5zicnjcogsa2.jpg"
+                }
+                alt=""
+                className="h-8 w-8 rounded-full"
+              />
+              <p className="mt-1 text-xs">{"dummyUserName"}</p>
+            </div>
+          )}
         </div>
       </div>
     </Link>

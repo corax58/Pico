@@ -1,28 +1,36 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const albumSchema = new Schema({
+const albumSchema = new Schema(
+  {
     title: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
-    postedBy:{
-        userName:String,
-        profilePic:String,
+    postedBy: {
+      userName: String,
+      profilePic: String,
     },
-    imageUrls: [{ 
+    imageUrls: [
+      {
         imageUrl: String,
         imagePublicId: String,
-       
-        imageThumbnailUrl: String
-    }],
-    description: {type: String},
-   tags: [String],
-    
-}, {
-    timestamps: true
-})
 
+        imageThumbnailUrl: String,
+      },
+    ],
+    description: { type: String },
+    tags: [String],
+    author: {
+      name: String,
+      profilePicture: String,
+      id: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports= mongoose.model("Album", albumSchema)
+module.exports = mongoose.model("Album", albumSchema);

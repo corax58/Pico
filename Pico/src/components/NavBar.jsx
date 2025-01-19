@@ -1,11 +1,12 @@
-// import logo from '../assets/images/logo.png'
 import { Link } from "react-router-dom";
 import logo from "../assets/Images/logo.png";
-import { BiSolidUser } from "react-icons/bi";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import UserPoppover from "./UserPoppover";
 
 const NavBar = () => {
   return (
-    <div className=" fixed  h-16 z-20 bg-white w-full flex items-center pt-2 p-2 md:p-5 shadow-sm ">
+    <div className=" fixed top-0 h-16 z-20 bg-white w-full flex items-center pt-2 p-2 md:p-5 shadow-sm ">
       <div>
         <Link to={"/"}>
           <img className="   h-max  w-32" src={logo} />
@@ -18,13 +19,10 @@ const NavBar = () => {
           placeholder="Search"
         />
       </form>
-      <div className="size-12 flex items-center rounded-badge overflow-hidden">
-        <img
-          src="https://wallpapers.com/images/hd/random-pfp-with-sunglasses-and-hearts-9cjm5zicnjcogsa2.jpg"
-          className="rounded-badge"
-          alt=""
-        />
-      </div>
+      <UserPoppover />
+      {/*       
+      <LoginButton />
+      <LogoutButton /> */}
     </div>
   );
 };

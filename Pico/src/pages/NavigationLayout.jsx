@@ -4,9 +4,11 @@ import { Outlet } from "react-router-dom";
 import UploadWidget from "@/components/UploadWidget";
 import { useReducer } from "react";
 import imageUrlsReducer from "@/reducers/imageUrlsReducer";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavigationLayout = () => {
   const [imageUrls, dispatch] = useReducer(imageUrlsReducer, []);
+  const { isAuthenticated } = useAuth0();
 
   const addImages = (image) => {
     dispatch({ type: "ADD_IMAGE_URL", imageUrl: image });
@@ -18,8 +20,13 @@ const NavigationLayout = () => {
   return (
     <div className=" ">
       <Outlet />
-      <UploadWidget addImages={addImages} />
-      <PostModal imageUrls={imageUrls} removeImages={removeImages} />
+
+      {isAuthenticated && (
+        <>
+          <UploadWidget addImages={addImages} />
+          <PostModal imageUrls={imageUrls} removeImages={removeImages} />
+        </>
+      )}
     </div>
   );
 };
