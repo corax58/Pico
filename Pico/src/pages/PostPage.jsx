@@ -16,7 +16,7 @@ const PostPage = () => {
       </div>
     );
   return (
-    <div>
+    <div className=" pt-16">
       <div className="  shadow-lg  h-100 carousel w-full">
         {post.imageUrls.map((image, index) => (
           <div
