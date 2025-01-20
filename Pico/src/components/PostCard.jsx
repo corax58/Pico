@@ -3,15 +3,34 @@ import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
   return (
-    <Link to={`/post/${post._id}`} className="  break-inside-avoid ">
+    <Link to={`/post/${post._id}`} className="  break-inside-avoid w-full ">
       <div className=" shadow-lg bg-slate-50   w-full h-max  hover:shadow-2xl rounded-3xl overflow-hidden   hover:scale-y-[1.02] hover:scale-x-[1.02] transition-all duration-200 ">
         <div className=" h-max w-full bg-white  p-2">
           {post.imageUrls.length < 2 ? (
-            <div className="h-full w-full rounded-2xl overflow-hidden  flex justify-center">
-              <img
-                src={post.imageUrls[0].imageUrl}
-                className="w-full rounded-2xl "
-              />
+            <div className="h-full w-full rounded-2xl overflow-hidden  relative justify-center">
+              {post.imageUrls[0].imageHeight ? (
+                <div className=" w-full  ">
+                  <img
+                    src={post.imageUrls[0].imageUrl}
+                    className="w-full absolute rounded-2xl "
+                  />
+                  <div
+                    className="  bg-slate-300"
+                    style={{
+                      width: "100%",
+
+                      aspectRatio:
+                        post.imageUrls[0].imageWidth /
+                        post.imageUrls[0].imageHeight,
+                    }}
+                  ></div>
+                </div>
+              ) : (
+                <img
+                  src={post.imageUrls[0].imageUrl}
+                  className="w-full rounded-2xl "
+                />
+              )}
             </div>
           ) : (
             <div className=" relative grid grid-cols-2   grid-flow-col gap-1 bg-white h-full overflow-hidden rounded-2xl group">

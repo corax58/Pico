@@ -53,7 +53,7 @@ const PostModal = ({ imageUrls, removeImages }) => {
     <div>
       {" "}
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box w-max">
+        <div className="modal-box w-full md:w-max">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
@@ -62,7 +62,7 @@ const PostModal = ({ imageUrls, removeImages }) => {
           <div>
             <form
               action=""
-              className="flex flex-col space-y-2 font-medium"
+              className="flex flex-col space-y-2 font-medium w-full"
               onSubmit={handleSubmit(onSubmit)}
             >
               <label htmlFor="title">Title</label>
@@ -76,7 +76,7 @@ const PostModal = ({ imageUrls, removeImages }) => {
                 type="text"
                 name="title"
                 id="title"
-                className="h-10 w-96 rounded-xl pl-3 mr-1 bg-slate-200"
+                className="h-10 w-full rounded-xl pl-3 mr-1 bg-slate-200"
               />
               <label htmlFor="description">Description</label>
               <textarea
@@ -86,7 +86,7 @@ const PostModal = ({ imageUrls, removeImages }) => {
                 id=""
                 cols="10"
                 rows="10"
-                className="h-24 w-96 rounded-xl p-3 pt-2 mr-1 bg-slate-200"
+                className="h-24 w-full rounded-xl p-3 pt-2 mr-1 bg-slate-200"
               ></textarea>
               <label htmlFor="tags">Tags</label>
               <div className=" flex">
