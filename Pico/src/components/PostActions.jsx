@@ -14,8 +14,9 @@ import {
   TelegramShareButton,
 } from "react-share";
 
-const PostActions = ({ postId }) => {
+const PostActions = ({ postId, isAuthor }) => {
   const DeletePost = useDeletePost();
+
   const currentLink = window.location.href;
   return (
     <div className="dropdown dropdown-end">
@@ -26,15 +27,19 @@ const PostActions = ({ postId }) => {
         tabIndex={0}
         className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
       >
-        <li>
-          {/* Open the modal using document.getElementById('ID').showModal() method */}
-          <button
-            className=" items-center w-full h-full flex gap-1 text-red-500 hover:text-white hover:bg-red-500 font-bold"
-            onClick={() => document.getElementById("delete_modal").showModal()}
-          >
-            <Trash size={18} /> Delete Post
-          </button>
-        </li>
+        {isAuthor && (
+          <li>
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button
+              className=" items-center w-full h-full flex gap-1 text-red-500 hover:text-white hover:bg-red-500 font-bold"
+              onClick={() =>
+                document.getElementById("delete_modal").showModal()
+              }
+            >
+              <Trash size={18} /> Delete Post
+            </button>
+          </li>
+        )}
 
         <li>
           <button

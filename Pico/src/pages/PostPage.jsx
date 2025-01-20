@@ -2,10 +2,12 @@ import React from "react";
 import useFetchSinglePost from "../hooks/useFetchSinglePost";
 import { useParams } from "react-router-dom";
 import PostActions from "@/components/PostActions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const PostPage = () => {
   const { postId } = useParams();
   const { data: post, isLoading } = useFetchSinglePost(postId);
+  const { isAuthenticated, user } = useAuth0();
 
   if (isLoading)
     return (
@@ -80,7 +82,10 @@ const PostPage = () => {
                 </p>
               </div>
             </div>
-            <PostActions postId={post._id} />
+            <PostActions
+              postId={post._id}
+              isAuthor={isAuthenticated && user.sub == post.author.id}
+            />
           </div>
 
           <div className="space-y-2 text-wrap">

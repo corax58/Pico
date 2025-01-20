@@ -5,7 +5,7 @@ const PostCard = ({ post }) => {
   return (
     <Link to={`/post/${post._id}`} className="  break-inside-avoid w-full ">
       <div className=" shadow-lg bg-slate-50   w-full h-max  hover:shadow-2xl rounded-3xl overflow-hidden   hover:scale-y-[1.02] hover:scale-x-[1.02] transition-all duration-200 ">
-        <div className=" h-max w-full bg-white  p-2">
+        <div className=" h-max w-full bg-white  p-2 pb-0">
           {post.imageUrls.length < 2 ? (
             <div className="h-full w-full rounded-2xl overflow-hidden  relative justify-center">
               {post.imageUrls[0].imageHeight ? (
@@ -101,9 +101,9 @@ const PostCard = ({ post }) => {
           )}
         </div>
         {/*post detail*/}
-        <div className="h-full w-full  pl-4  space-y-2 pb-2 pt-1 bg-white">
+        <div className="h-full w-full bg-white p-3 flex flex-col gap-1">
           <div className="flex  flex-col">
-            <p className="text-sm font-medium">{post.title}</p>
+            <p className=" font-semibold pl-2 trunicate">{post.title}</p>
             <div className="flex space-x-1">
               {post.tags.slice(0, 3).map((tag) => (
                 <p
@@ -115,27 +115,18 @@ const PostCard = ({ post }) => {
               ))}
             </div>
           </div>
-          {post.author ? (
-            <div className="flex space-x-2">
-              <img
-                src={post.author.profilePicture}
-                alt=""
-                className="h-8 w-8 rounded-full"
-              />
-              <p className="mt-1 text-xs">{post.author.name}</p>
+
+          <div className="flex gap-2 items-center ">
+            <img
+              src={post.author.profilePicture}
+              alt=""
+              className="h-8 w-8 rounded-full"
+            />
+            <div>
+              <p className="text-sm">{post.author.name}</p>
+              <p className=" text-xs ">{post.createdAt.slice(0, 10)}</p>
             </div>
-          ) : (
-            <div className="flex space-x-2">
-              <img
-                src={
-                  "https://wallpapers.com/images/hd/random-pfp-with-sunglasses-and-hearts-9cjm5zicnjcogsa2.jpg"
-                }
-                alt=""
-                className="h-8 w-8 rounded-full"
-              />
-              <p className="mt-1 text-xs">{"dummyUserName"}</p>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </Link>
