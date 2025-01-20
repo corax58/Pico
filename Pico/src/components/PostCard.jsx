@@ -34,33 +34,68 @@ const PostCard = ({ post }) => {
             </div>
           ) : (
             <div className=" relative grid grid-cols-2   grid-flow-col gap-1 bg-white h-full overflow-hidden rounded-2xl group">
-              <img
-                src={post.imageUrls[0].imageUrl}
-                className={
-                  "h-full  rounded-2xl   object-cover" +
-                  (post.imageUrls.length > 2 ? " row-span-2" : "")
-                }
-              />
-              <img
-                src={post.imageUrls[1].imageUrl}
-                className="h-full rounded-2xl  object-cover"
-              />
+              {post.imageUrls[0].imageHeight ? (
+                <div
+                  className={
+                    "h-full relative rounded-2xl   overflow-clip " +
+                    (post.imageUrls.length > 2 ? " row-span-2" : "")
+                  }
+                >
+                  <img
+                    src={post.imageUrls[0].imageUrl}
+                    className="absolute  h-full  rounded-2xl   object-cover "
+                  />
+                  <div
+                    className="  bg-slate-300"
+                    style={{
+                      width: "100%",
+                      height: "100%",
 
-              {post.imageUrls.length > 3 && (
-                <div className=" absolute bg-black h-full rounded-2xl  w-full opacity-50 items-center justify-center scale-0 group-hover:scale-100">
-                  <div className="flex items-center justify-center h-full ">
-                    <p className="text-white text-5xl">
-                      +{post.imageUrls.length - 3}{" "}
-                    </p>
-                  </div>
+                      aspectRatio:
+                        post.imageUrls[0].imageWidth /
+                        post.imageUrls[0].imageHeight,
+                    }}
+                  ></div>
                 </div>
+              ) : (
+                <img
+                  src={post.imageUrls[0].imageUrl}
+                  className="w-full rounded-2xl "
+                />
+              )}
+
+              {post.imageUrls[1].imageHeight ? (
+                <div className=" w-full  ">
+                  <img
+                    src={post.imageUrls[1].imageUrl}
+                    className="h-full absolute rounded-2xl "
+                  />
+                  <div
+                    className=" rounded-2xl bg-slate-300"
+                    style={{
+                      width: "100%",
+
+                      aspectRatio:
+                        post.imageUrls[1].imageWidth /
+                        post.imageUrls[1].imageHeight,
+                    }}
+                  ></div>
+                </div>
+              ) : (
+                <img
+                  src={post.imageUrls[1].imageUrl}
+                  className="w-full rounded-2xl "
+                />
               )}
 
               {post.imageUrls.length > 2 && (
-                <img
-                  src={post.imageUrls[2].imageUrl}
-                  className="h-full rounded-2xl object-cover "
-                />
+                <div className=" absolute bg-black h-full rounded-2xl  w-full opacity-50 items-center justify-center scale-0 group-hover:scale-100">
+                  <div className="flex items-center justify-center h-full ">
+                    <p className="text-white text-5xl">
+                      +{post.imageUrls.length - 2}
+                    </p>
+                  </div>
+                </div>
               )}
             </div>
           )}
