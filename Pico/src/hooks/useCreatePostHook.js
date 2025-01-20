@@ -12,8 +12,6 @@ const useCreatePostHook = () => {
     id: user.sub,
   };
 
-  console.log({ author });
-
   return useMutation({
     mutationFn: (postData) =>
       axios
