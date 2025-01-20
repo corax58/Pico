@@ -16,16 +16,6 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: [
-      {
-        light: {
-          ...require("daisyui/src/theming/themes")["light"],
-          primary: "#ff6c6c",
-          secondary: "#f44336",
-        },
-      },
-      "dark",
-      "corporate",
-    ],
+    themes: ["light", "dark", "corporate"],
   },
 };

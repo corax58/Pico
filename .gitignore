@@ -1,3 +1,6 @@
 Pico/node_modules
+Pico/.env
 
 server/node_modules
+server/.env
+
