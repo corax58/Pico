@@ -16,8 +16,9 @@ const albumSchema = new Schema(
       {
         imageUrl: String,
         imagePublicId: String,
-
         imageThumbnailUrl: String,
+        imageHeight: Number,
+        imageWidth: Number,
       },
     ],
     description: { type: String },
