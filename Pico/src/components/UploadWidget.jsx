@@ -55,9 +55,9 @@ const UploadWidget = ({ addImages }) => {
     <div className=" w-max fixed bottom-0 items-center  group left-1/2 -ml-6">
       <button
         onClick={() => widgetRef.current.open()}
-        className="btn       items-center right-1/2 mb-5 text-white bg-red-500 hover:bg-red-600"
+        className=" p-4 rounded-full      items-center right-1/2 mb-5 text-white bg-red-500 hover:bg-red-600"
       >
-        <span className="absolute  bg-red-400 w-max p-3 rounded-xl bottom-20  scale-0 group-hover:scale-100 transition-all duration-100 origin-bottom font-medium">
+        <span className="absolute -left-12 bg-red-400 w-max p-3 rounded-xl bottom-20  scale-0 group-hover:scale-100 transition-all duration-100 origin-bottom font-medium">
           Upload new album
         </span>
         <FaPlus />

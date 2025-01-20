@@ -12,6 +12,7 @@ const useDeletePost = () => {
         .delete(import.meta.env.VITE_SERVER_URL + `${postId}`)
         .then((res) => res.data),
     onSuccess: () => {
+      console.log("delete successful");
       queryClient.invalidateQueries({ queryKey: ["posts"] });
       navigate("/");
     },

@@ -1,9 +1,22 @@
 import useDeletePost from "@/hooks/useDeletePost";
-import { EllipsisVertical, Trash } from "lucide-react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Copy, EllipsisVertical, Share, Trash } from "lucide-react";
 import React from "react";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  InstapaperIcon,
+  InstapaperShareButton,
+  PinterestIcon,
+  PinterestShareButton,
+  RedditShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+} from "react-share";
 
 const PostActions = ({ postId }) => {
   const DeletePost = useDeletePost();
+  const currentLink = window.location.href;
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className=" m-1">
@@ -22,7 +35,46 @@ const PostActions = ({ postId }) => {
             <Trash size={18} /> Delete Post
           </button>
         </li>
+
+        <li>
+          <button
+            className=""
+            onClick={() => document.getElementById("share_modal").showModal()}
+          >
+            <Share /> Share
+          </button>
+        </li>
       </ul>
+
+      <dialog id="share_modal" className="modal">
+        <div className="modal-box flex flex-col gap-2">
+          <h3 className="font-bold text-lg">Share </h3>
+          <div className=" flex justify-between">
+            <FacebookShareButton url={currentLink} className=" rounded-full">
+              <FacebookIcon className=" rounded-full size-10" />
+            </FacebookShareButton>
+
+            <PinterestShareButton url={currentLink}>
+              <PinterestIcon className=" rounded-full size-10" />
+            </PinterestShareButton>
+            <TelegramShareButton url={currentLink}>
+              <TelegramIcon className=" rounded-full size-10" />
+            </TelegramShareButton>
+            <button
+              className=" bg-slate-700 text-white  size-10 rounded-full flex items-center justify-center"
+              onClick={() => {
+                navigator.clipboard.writeText(currentLink);
+                document.getElementById("share_modal").close();
+              }}
+            >
+              <Copy />
+            </button>
+          </div>
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
       <dialog id="delete_modal" className="modal ">
         <div className="modal-box h-min  flex flex-col ">
           <p className=" font-bold ">Confirm deletion</p>
@@ -31,7 +83,11 @@ const PostActions = ({ postId }) => {
               {/* if there is a button in form, it will close the modal */}
               <button
                 className="btn-error btn "
-                onClick={() => DeletePost.mutate(postId)}
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  DeletePost.mutate(postId);
+                }}
               >
                 Delete
               </button>
