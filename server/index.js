@@ -17,7 +17,9 @@ app.use(express.json());
 
 //routes
 app.use("/api/albums/", albums);
-
+app.get("/api/ping", (req, res) => {
+  res.status(200).json({ message: "OK" });
+});
 //connect to the database
 mongoose
   .connect(process.env.MONGO_URI)
